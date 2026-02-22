@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CENTRO METEOROLÓGICO PUERTO MONTT - INICIO</title>
+
+    <style>
+        /* =========================================
+           1. VARIABLES Y BASE
+           ========================================= */
+        :root {
+            --azul-oscuro: #000814;
+            --azul-medio: #001d3d;
+            --azul-brillante: #003566;
+            --cian: #4cc9f0;
+            --blanco: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--azul-oscuro);
+            background-image: radial-gradient(circle at top, var(--azul-medio) 0%, var(--azul-oscuro) 100%);
+            background-attachment: fixed;
+            color: var(--blanco);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* =========================================
+           2. NAVEGACIÓN
+           ========================================= */
+        nav {
+            background: rgba(0, 29, 61, 0.95);
+            border-bottom: 2px solid var(--cian);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li { position: relative; }
+
+        nav ul li a {
+            display: block;
+            padding: 18px 25px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--cian);
+            background: rgba(76, 201, 240, 0.1);
+        }
+
+        /* Submenú Pronósticos */
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--azul-medio);
+            min-width: 280px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            border-radius: 0 0 8px 8px;
+            border: 1px solid var(--azul-brillante);
+            padding: 10px 0;
+        }
+
+        nav ul li:hover > ul { display: block; animation: fadeIn 0.3s ease; }
+
+        nav ul li ul li a {
+            padding: 12px 20px;
+            text-transform: none;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translate(-50%, 10px); } to { opacity: 1; transform: translate(-50%, 0); } }
+
+        /* =========================================
+           3. CONTENIDO CENTRAL
+           ========================================= */
+        .hero-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .contenedor-logo {
+            position: relative;
+            margin-bottom: 2.5px;
+        }
+
+        .imagen-principal {
+            max-width: 230px;
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(76, 201, 240, 0.5));
+            transition: transform 0.5s ease;
+        }
+
+        .imagen-principal:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 0 10px rgba(76, 201, 240, 0.3);
+        }
+
+        .subtitulo {
+            color: var(--cian);
+            font-size: 1.3rem;
+            margin-top: 10px;
+            letter-spacing: 3px;
+            font-weight: 300;
+        }
+
+        .separador {
+            width: 120px;
+            height: 4px;
+            background: var(--cian);
+            margin: 30px 0;
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--cian);
+        }
+
+        /* Tarjetas de Acceso Directo */
+        .grid-accesos {
+            display: flex;
+            gap: 25px;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 40px;
+            justify-content: center;
+        }
+
+        .tarjeta-acceso {
+            flex: 1;
+            background: rgba(0, 53, 102, 0.4);
+            border: 1px solid var(--azul-brillante);
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .tarjeta-acceso:hover {
+            background: var(--azul-brillante);
+            border-color: var(--cian);
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+        }
+
+        .tarjeta-acceso strong {
+            font-size: 18px;
+            color: var(--cian);
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        /* =========================================
+           4. PIE DE PÁGINA
+           ========================================= */
+        footer {
+            background-color: var(--azul-medio);
+            color: var(--cian);
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            font-weight: 700;
+            font-style: italic;
+            border-top: 3px solid var(--cian);
+            letter-spacing: 1px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href="#">📋 Pronósticos Meteorológicos PDF</a>
+                <ul>
+                    <li><a href="https://fran5142.github.io/PRONOSTICOS-LOCALES-IQUE-PDF/" target="_blank">CENMETEOIQUE</a></li>
+                    <li><a href="https://fran5142.github.io/PRONOSTICOS-LOCALES-VALP-PDF-/" target="_blank">CENMETEOVALP</a></li>
+                    <li><a href="https://fran5142.github.io/PRONOSTICOS-LOCALES-TALC-PDF/" target="_blank">CENMETEOTALC</a></li>
+                    <li><a href="https://fran5142.github.io/PRONOSTICOS-LOCALES-PMO-PDF/" target="_blank">CENMETEOPMO</a></li>
+                    <li><a href="https://fran5142.github.io/PRONOSTICOS-LOCALES-MAG-PDF/" target="_blank">CENMETEOMAG</a></li>
+                </ul>
+            </li>
+            <li><a href="https://fran5142.github.io/GENERADOR-DE-AVISOS-MULTIZONA/" target="_blank">⚠️ Generador de Avisos PDF</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-section">
+        <div class="contenedor-logo">
+            <img src="https://archive.org/download/escudo-servimet/ESCUDO%20SERVIMET.png" alt="Logo Meteo PMO" class="imagen-principal">
+        </div>
+        
+        <h1>Servicio Meteorológico de la Armada de Chile</h1>
+        <div class="subtitulo">POST NUBILA PHOEBUS</div>
+        
+        <div class="separador"></div>
+        
+        <p>Seleccione una herramienta para comenzar la gestión de productos meteorológicos.</p>
+
+        <div class="grid-accesos">
+            <a href="https://meteoarmada.directemar.cl/" class="tarjeta-acceso" target="_blank">
+                <strong>SERVIMET</strong>
+                <small>Ingrese aquí</small>
+            </a>
+            <a href="https://meteoarmada.directemar.cl/meteo/site/edic/base/port/inicio_liviana.html" class="tarjeta-acceso" target="_blank">
+                <strong>VERSIÓN LIVINA</strong>
+                <small>Ingrese aquí</small>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        Creado por Cabo 1º (Met.) Francisco Salas Muñoz
+    </footer>
+
+</body>
+</html>
